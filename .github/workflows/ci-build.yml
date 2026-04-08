@@ -1,4 +1,4 @@
-name: CI-Build-and-Update-GitOps
+name: CI-Build-Resume
 
 on:
   push:
@@ -23,18 +23,3 @@ jobs:
           IMAGE_TAG=${{ github.sha }}
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/resume-app:$IMAGE_TAG ./app
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/resume-app:$IMAGE_TAG
-
-      - name: Update GitOps Repo Tag
-        run: |
-          git config --global user.name "GitHub Action"
-          git config --global user.email "action@github.com"
-          
-          rm -rf resume-gitops-config
-          git clone https://x-access-token:${{ secrets.GITOPS_TOKEN }}@github.com/${{ github.repository_owner }}/resume-gitops-config.git
-          cd resume-gitops-config
-          
-          sed -i "s/tag: .*/tag: ${{ github.sha }}/g" helm-chart/values.yaml
-          
-          git add .
-          git commit -m "Update image tag to ${{ github.sha }} [skip ci]"
-          git push origin main
