@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aadesh Chaugule - Portfolio</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #eef2f3;
+        }
+        .header {
+            text-align: center;
+            background: #1a2a6c;
+            background: linear-gradient(to right, #b21f1f, #fdbb2d, #1a2a6c);
+            color: #fff;
+            padding: 40px 20px;
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .header h1 { margin: 0; font-size: 2.5em; letter-spacing: 1px; }
+        .header p { margin: 5px 0; font-size: 1.1em; opacity: 0.9; }
+
+        .container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            border-left: 5px solid #1a2a6c;
+            padding-left: 15px;
+            color: #1a2a6c;
+            text-transform: uppercase;
+            font-size: 1.3em;
+            margin-top: 30px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .skill-item {
+            background: #f8f9fa;
+            padding: 12px;
+            border-left: 3px solid #fdbb2d;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        .job {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-bottom: 1px dashed #ddd;
+        }
+        .job-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #b21f1f;
+        }
+        .date {
+            font-weight: bold;
+            color: #7f8c8d;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+
+        .education {
+            background: #fff9e6;
+            padding: 15px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Aadesh Chaugule</h1>
+        <p>Linux Support Engineer | Dombivli, Maharashtra</p>
+        <p>adesh.v.chaugule@gmail.com | 9702512812</p>
+    </div>
+
+    <div class="container">
+        <h2>Professional Summary</h2>
+        <p>Result-oriented Linux Support Engineer with over 1.5 years of experience in production environment monitoring, system administration, and application deployments. Proficient in managing infrastructure health using Datadog and supporting deployments via Jenkins, GitLab CI, and ArgoCD.</p>
+
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item"><strong>OS:</strong> Linux (Ubuntu, CentOS, RHEL)</div>
+            <div class="skill-item"><strong>CI/CD:</strong> Jenkins, GitLab CI, ArgoCD</div>
+            <div class="skill-item"><strong>Containers:</strong> Docker & Kubernetes</div>
+            <div class="skill-item"><strong>Monitoring:</strong> Datadog & Database</div>
+            <div class="skill-item"><strong>Automation:</strong> Bash/Shell Scripting</div>
+            <div class="skill-item"><strong>Version Control:</strong> Git</div>
+        </div>
+
+        <h2>Work Experience</h2>
+        <div class="job">
+            <span class="date">07/2025 - Present</span>
+            <div class="job-title">Linux Support Engineer | CBY Services Limited</div>
+            <ul>
+                <li>Monitoring real-time server health and application performance via Datadog; analyzing alerts for DevOps teams.</li>
+                <li>Assisting in application deployments using Jenkins, GitLab, and ArgoCD.</li>
+                <li>Monitoring pod status and basic cluster health within Kubernetes environments.</li>
+                <li>Tracking Database replication lags and managing production Cron Jobs.</li>
+            </ul>
+        </div>
+
+        <h2>Education</h2>
+        <div class="education">
+            <p><strong>Bachelor of Engineering in Information Technology</strong></p>
+            <p>Pillai HOC College of Engineering & Technology | GPA: 7.7 | Year: 07/2024</p>
+        </div>
+    </div>
+
+</body>
+</html>
