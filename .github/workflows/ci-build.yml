@@ -9,7 +9,7 @@ jobs:
     runs-on: self-hosted 
     
     steps:
-      - name: Checkout Code
+      - name: Checkout Application Code
         uses: actions/checkout@v4
 
       - name: Login to Docker Hub
@@ -21,5 +21,20 @@ jobs:
       - name: Build and Push Docker Image
         run: |
           IMAGE_TAG=${{ github.sha }}
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/resume-app:$IMAGE_TAG ./app
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/resume-app:$IMAGE_TAG
+          docker build -t aadesh2002/resume-app:$IMAGE_TAG ./app
+          docker push aadesh2002/resume-app:$IMAGE_TAG
+          echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
+
+      - name: Update GitOps Repo with New Tag
+        run: |
+          git config --global user.email "adesh.v.chaugule@gmail.com"
+          git config --global user.name "AadeshChaugule"
+          
+          git clone https://x-access-token:${{ secrets.GITOPS_REPO_TOKEN }}@github.com/AadeshChaugule/resume-gitops-config.git
+          cd resume-gitops-config
+          
+          sed -i "s/tag: .*/tag: \"${{ env.IMAGE_TAG }}\"/" helm-chart/values.yaml
+          
+          git add helm-chart/values.yaml
+          git commit -m "Update image tag to ${{ env.IMAGE_TAG }} [skip ci]"
+          git push origin main
